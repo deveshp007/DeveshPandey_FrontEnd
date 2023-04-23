@@ -5,7 +5,7 @@
 ## Introduction :
 <br>
 
-<b>Live Deplpoyment: https://frontend-assignment-steeleye.netlify.app/</b>
+<b>Live Deployment: https://frontend-assignment-steeleye.netlify.app/</b>
 
 <br>
 <b>Based on the code below answer the following queries:</b>
