@@ -30,6 +30,46 @@ The `List` component uses the `useState` hook to keep track of the selected inde
 
 _Solution_ :
 
+1. In the `SingleListItem` component, the `onClickHandler` prop is not being passed the index properly. Instead of passing a callback function, it's immediately invoking the `handleClick` function and passing its return value (which is undefined) to the `onClick` prop. To fix this, you can change the prop to:
+
+```js
+onClickHandler={() => onClickHandler(index)}
+```
+
+2. In the `WrappedListComponent` component, the `selectedIndex` state is being initialized without a default value, which can lead to unexpected behavior. To fix this, you can initialize the state to null:
+
+```js
+
+const [selectedIndex, setSelectedIndex] = useState(null);
+
+```
+
+3. In the `WrappedListComponent` component, the `isSelected` prop is being passed the `selectedIndex` state directly, which is a number. However, the prop is expecting a boolean value. To fix this, you can change the prop to:
+
+```js
+isSelected={selectedIndex === index}
+```
+
+4. In the `WrappedListComponent` component, the items prop is being defined as an array of objects with a text property, but the syntax is incorrect. Instead of `PropTypes.array(PropTypes.shapeOf({...}))`, it should be:
+
+```js
+PropTypes.arrayOf(
+  PropTypes.shape({
+    text: PropTypes.string.isRequired,
+  })
+)
+```
+
+5. In the `WrappedListComponent` component, the items prop is being set to null by default, but the prop type is defined as an array. It's better to set the default value to an empty array, like this:
+
+```js
+WrappedListComponent.defaultProps = {
+  items: [],
+};
+```
+
+---
+
 <b>3.</b> Please fix, optimize, and/or modify the component as much as you think is necessary.
 
 _Solution_ :
