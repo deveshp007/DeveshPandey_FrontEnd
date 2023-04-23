@@ -156,14 +156,102 @@ In the above code, I have implemented the following changes:
 - The `handleClick` function has been wrapped with `useCallback` to prevent unnecessary re-creation of the function reference on every render. And it has been updated to handle both single and multiple selection. If multiple is true, clicking an item will toggle its selection. If multiple is false, clicking an item will select it and deselect any other selected items. This can be done as:
 
 ```js
-return (
-  <div>
-    <h1>List</h1>
-    <List items={items} multiple={true} />
-  </div>
-);
+const App = () => {
+  const [multiple, setMultiple] = useState(true);
+
+  const handleToggle = () => {
+    setMultiple(!multiple);
+  };
+
+  return (
+    <div className='page'>
+    <div className='container'>
+      <h1>Frontend Engineer Assignment</h1>
+      <button onClick={handleToggle}>
+        {multiple ? 'Multiple Select' : 'Single Select'}
+      </button>
+      <List items={items} multiple={multiple} />
+    </div>
+    </div>
+  );
+};
+
+export default App;
+```
+Moreover I have added some styles to make it look better. The css code is as follows:
+
+<b>List.css</b>
+```css
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+li {
+  max-width: 500px;
+  text-align: center;
+  width: 300px;
+  font-size: 1.2rem;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #ddd;
+}
+
+li.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+```
+<b>App.css</b>
+```css
+.page{
+  background-color: #212121;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+  padding: 50px;
+  background-color: #ebebeb;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.601);
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #212121;
+}
+
+button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
 ```
 <br>
+
+To see the live deployment, click on the link below:
 
 <b>Live Deplpoyment: https://frontend-assignment-steeleye.netlify.app/</b>
 
