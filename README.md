@@ -3,7 +3,11 @@
 ## React Component Code Review
 
 ## Introduction :
+<br>
 
+<b>Live Deplpoyment: https://frontend-assignment-steeleye.netlify.app/</b>
+
+<br>
 <b>Based on the code below answer the following queries:</b>
 
 ---
@@ -251,8 +255,10 @@ button:hover {
 ```
 <br>
 
-To see the live deployment, click on the link below:
+Name: <b>Devesh Pandey</b>
 
-<b>Live Deplpoyment: https://frontend-assignment-steeleye.netlify.app/</b>
+Reg. Number: <b>12017262</b>
+
+Lovely Professional University
 
 ---
